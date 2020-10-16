@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>How natural you think the following utterance is?</h1>
+<audio autoplay>
+    <source src="{{ url_for('static', filename=audio) }}" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<form action="/experiment" method="POST">
+    <div class="form-group">
+        <input type="hidden" name="code" value="{{ code }}">
+        <input type="hidden" name="user" value="{{ user }}">
+        <label>
+            <input type="radio" name="judgement" value="1">
+            1 Very unnatural
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="radio" name="judgement" value="2">
+            2 Natural
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+        <input type="radio" name="judgement" value="3">
+        3 Very natural
+    </label>
+    </div>
+    <button type="submit" class="btn btn-default">Send</button>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>Fill with your info</h1>
+<form action="/experiment" method="POST">
+    <div class="form-group">
+        <label>When's your birthday?</label>
+            <input type="date" name="born">
+    </div>
+    <div class="form-group">
+        <label>Where are you from? (City, Country)</label>
+            <input type="text" name="origin" placeholder="Madrid, España">
+    </div>
+    <div class="form-group">
+        <label>What's your highest level of studies? (City, Country)</label>
+            <select name="studies">
+                <option selected disabled>Choose one</option>
+                <option value="1">None</option>
+                <option value="2">Primary studies</option>
+                <option value="3">Secondary studies</option>
+                <option value="3">High studies</option>
+            </select>
+    </div>
+    <input type="hidden" name="survey">
+    <button type="submit" class="btn btn-default">Send</button>
+</form>
+{% endblock %}
